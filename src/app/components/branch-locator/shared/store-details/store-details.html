@@ -1,0 +1,25 @@
+<div class="branch-results" [style.background-color]="bgColor">
+
+            
+           
+    <div class="store-name" (click)="onZoomTo(store.longitude, store.latitude)">
+        <div class="store-name-position"><span class="store-position">{{position}}</span>{{store.name}}</div>
+            <span class="store-info"><i class="fa fa-info-circle"></i></span></div>
+          
+    <div class="operating-hours">
+      <i class="fa fa-circle" [class.is-trading]="store.trading_status === 'Open'"></i><span class="trading-status">{{store.trading_status}}</span><span>|</span>  {{store.operating_hours.operating_time_string}}
+    </div>
+    
+    <div class="directions-container"
+        (click)="getDirection(store.googleDirectionsLink); onZoomTo(store.longitude, store.latitude)">
+    <button class="btn btn-primary">
+        <i class="fa fa-location-dot"></i> Get directions</button> ({{store.distance.toFixed(1)}} km)
+  </div>
+
+    <div class="store-address">{{store.address}}</div>
+    <div class="store-contact"><a><i class="fa fa-phone"></i> {{store.primaryNumber}}</a></div>
+       <div class="store-type"> <span>{{store.attributes[0]?.value}}</span></div>
+    
+
+         
+</div>

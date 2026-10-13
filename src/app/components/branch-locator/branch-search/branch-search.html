@@ -1,0 +1,77 @@
+<div class="branch-search">
+    <h2>Find a branch near you</h2>
+    <p>Enter a location to find a branch</p>
+    <div class="search-container">
+      <input type="search" class="search-input" placeholder="Search for a branch name, city, address or province" (keyup)="onSearchBranch($event)">
+      <img class="search-button" src="https://www.capitecbank.co.za/contentassets/044c4fbb1bfc40d3b771641478d36beb/magnifying-glass.svg">
+    </div>
+    <div class="filter-container">
+      <div class="filter-centre">
+        <span (click)="toggleCentresFilter()">Filters 
+        @if (!centresFilterIsOpen()){<i class="fa fa-chevron-down"></i>}
+        @if (centresFilterIsOpen()){<i class="fa fa-chevron-up"></i>}</span>
+        @if (selectedTypesCount() > 0){<span class="filter-count" (click)="clearTypesCount()">({{selectedTypesCount()}}) clear</span>}
+      </div>
+      <div class="filter-distance">
+        <ul>
+          <li (click)="filterByDistance(3)" [class.selected-distance-active]="selectedDistance() === 3">3km</li>
+          <li (click)="filterByDistance(20)" [class.selected-distance-active]="selectedDistance() === 20">20km</li>
+          <li (click)="filterByDistance(50)" [class.selected-distance-active]="selectedDistance() === 50">50km</li>
+          <li (click)="filterByDistance(100)"  [class.selected-distance-active]="selectedDistance() === 100">100km</li>
+        </ul>
+      </div>
+      </div>
+      <div class="branch-results-container">
+        @if (centresFilterIsOpen()){
+        <div class="centre-type">
+          <ul>
+            <li>
+              <input type="checkbox" id="atm" [checked]="isTypeChecked('IsAtm')" (change)="onTypeChange($event, 'IsAtm')"> 
+              <label for="atm">ATMs</label>
+            </li>
+            <li>
+              <input type="checkbox" id="branch" [checked]="isTypeChecked('IsBranch')" (change)="onTypeChange($event, 'IsBranch')"> 
+              <label for="branch">Branches</label>
+            </li>      
+            <li>
+              <input type="checkbox" id="business" [checked]="isTypeChecked('BusinessBankCenter')" (change)="onTypeChange($event, 'BusinessBankCenter')"> 
+              <label for="business">Business Bank Centers</label>
+            </li>
+            <li>
+              <input type="checkbox" id="cash" [checked]="isTypeChecked('CashAccepting')" (change)="onTypeChange($event, 'CashAccepting')"> 
+              <label for="cash">Cash Accepting ATMs</label>
+            </li>
+            <li>
+              <input type="checkbox" id="smartid" [checked]="isTypeChecked('SmartID')" (change)="onTypeChange($event, 'SmartID')"> 
+              <label for="smartid">SmartID Service</label>
+            </li>
+          </ul>
+        <div class="centre-type-actions"><button (click)="submitType()">Apply</button><button (click)="cancelType()">Reset</button> </div>
+      </div>
+    }
+
+    @if (stores.length || searchInputIsDirty){
+      <div class="branch-results-container-scrollable">
+
+        @if (stores.length === 0 && searchInputIsDirty && !isLoading){
+            <div class="no-results"><i class="fa fa-search"></i> No results found for '{{searchQuery}}'. Try a another keyword</div>
+        } 
+
+        @if (stores.length > 0 && !isLoading){
+          <div class="results-count">{{stores.length}} locations found: {{searchQuery}}</div>
+        }
+
+        @if (isLoading){
+            <div class="results-load"><i class="fa-solid fa-circle-notch custom-spinner"></i></div>
+        }
+
+        @if (!isLoading){
+        <div class="stores-list">
+        @for (store of stores; track store.name; let i = $index){
+          <store-details [store]="store" [position]="i+1" (zoomToEmit)="onZoomTo($event)"></store-details>
+        } </div>
+      }
+    </div>
+  }
+    </div>
+  </div>

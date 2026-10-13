@@ -1,0 +1,9 @@
+<div class="branch-map">
+    
+    <div id="ol-map" style="width: 100%; height: calc(100vh - 150px);"></div>
+    @if (stores.length === 1){
+      <div class="map-branch-details">
+        <div class="map-branch-details-close"><i class="fa fa-times" (click)="closeStoreDetails()"></i></div>
+        <store-details [bgColor]="'transparent'" [store]="stores[0]"></store-details></div>
+    }
+  </div>

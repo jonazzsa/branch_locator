@@ -1,0 +1,24 @@
+
+services:
+  frontend:
+    build:
+      context: ./branch-locator
+      dockerfile: Dockerfile
+    container_name: branch-locator-ui
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: branch-locator-api
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+    expose:
+      - "3000"
+    restart: unless-stopped

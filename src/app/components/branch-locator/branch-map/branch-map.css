@@ -1,0 +1,39 @@
+.branch-map {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.map-branch-details {
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .9);
+    max-width: 400px;
+    top: 32px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: fit-content;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 1px #ccc;
+}
+
+.map-branch-details::after {
+    content: "";
+    position: absolute;
+    bottom: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid rgba(255, 255, 255, .9); 
+  }
+
+.map-branch-details-close {
+    display: flex;
+    justify-content: end;
+    padding: 16px
+}

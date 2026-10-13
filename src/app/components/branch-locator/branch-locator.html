@@ -1,0 +1,36 @@
+
+<div class="store-locator-container">
+
+  <div class="branches-intro">
+  
+<h1>Branches</h1>
+<p class="branches-description">Use our branch locator below to find your nearest branch. Use the filters to see ATMs, branches or Smart ID services.</p>
+<p>
+  Branch Code: 470010<br />
+Swift Code: CABLZAJJ
+</p>
+</div>
+    
+
+    <div class="container">
+<div>
+    <branch-search 
+    [stores]="filteredStores()" 
+    [isLoading]="isLoading()"
+    (searchStoresEmit)="searchStores($event)"
+    (zoomToEmit)="zoomTo($event)"
+    (filterTypeEmit)="filterType($event)"
+    (changeDistanceEmit)="distanceChange($event)"></branch-search>
+  </div>
+
+  <div>
+    <branch-map 
+    [stores]="storeDetails().length === 1 ? storeDetails()! : (filteredStores().length > 0 ? filteredStores() : initFilteredStores())"
+    [coordinates]="coordinates()" 
+    (closeStoreDetailsEmitter)="closeStoreDetails()"
+    ></branch-map>
+  </div>
+  
+    </div>
+
+  </div>

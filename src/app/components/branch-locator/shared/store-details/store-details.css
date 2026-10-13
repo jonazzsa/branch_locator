@@ -1,0 +1,87 @@
+.branch-results {
+    padding: 16px;
+}
+
+
+.store-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.store-name-position {
+    display: flex;
+    gap: 16px
+}
+
+.store-position {
+color: rgb(75, 85, 99);
+font-weight: 100;
+}
+
+
+.store-info {
+    color: rgb(44, 112, 239)
+}
+
+.operating-hours {
+    background-color: rgb(243, 244, 246);
+padding: 8px;
+margin-bottom: 16px;
+display: flex;
+gap: 8px;
+align-items: center;
+font-weight: 100;
+}
+
+.trading-status {
+    font-weight: bold
+}
+
+.is-trading {
+    color: rgb(34, 197, 94)
+}
+
+.directions-container {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.directions-container button {
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.store-address {
+font-size: 14px;
+font-weight: 100;
+padding-bottom: 16px;
+margin-bottom: 16px;
+border-bottom: solid 1px rgb(229, 231, 235);
+}
+
+.store-contact {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.store-contact a {
+color: rgb(44, 112, 239)
+}
+
+.store-type span {
+    background-color: rgb(243, 244, 246);
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 100;
+}
+
