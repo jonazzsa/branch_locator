@@ -10,7 +10,6 @@
     "install:api": "cd ./api && npm install",
     "install:ui": "npm install",
     "setup": "npm install && cd ../api && npm install",
-    "start-with-proxy": "npm run start:dev",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

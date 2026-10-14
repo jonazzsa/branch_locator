@@ -9,13 +9,13 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run build -- --configuration production --ssr=false --prerender=false
+RUN npm run build -- --configuration production --output-mode=static
 
 FROM nginx:stable-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist/branch-locator/browser/ /usr/share/nginx/html/
+COPY --from=builder /app/dist/branch_locator/browser/ /usr/share/nginx/html/
 
 EXPOSE 80
 

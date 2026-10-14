@@ -1,24 +1,34 @@
-## This project was generated using Angular CLI version 20.3.7.
+This project was generated using Angular CLI version 20.3.7.
 
-## QUICK START
+## Quick Start
 
-# Using docker compose
-docker-compose build
-docker-compose up
+### 1. Run Locally (option 1)
 
-# Docker UI
-docker build -f Dockerfile.frontend -t frontend .
-docker run -p 4200:4200 frontend
+**Prerequisites:** Node.js and npm.
 
-# Docker API
-docker build -f Dockerfile.api -t api .
-docker run -p 5001:5001 api
+```bash
+cd branch_locator
+npm run setup
+npm run start:dev
+```
 
-# No Docker UI
-npm install
-npm run start-with-proxy
+Open **http://localhost:4200** in your browser.
 
-# No Docker API
-cd api
-npm install
-node server.js
+
+
+### 2. Run with Docker Compose (option 2)
+
+**Prerequisites:** Docker and Docker Compose installed, with the Docker engine running.
+
+```bash
+cd branch_locator
+docker-compose up -d --build
+```
+
+Open **http://localhost:8080** in your browser.
+
+To stop the containers:
+
+```bash
+docker-compose down
+```
